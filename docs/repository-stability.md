@@ -1,4 +1,4 @@
-# Repository Maturity
+# Repository Stability
 
 A guide to understanding the maturity and support level of repositories in the Glean organization.
 
