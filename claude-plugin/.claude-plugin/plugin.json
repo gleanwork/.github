@@ -1,0 +1,8 @@
+{
+  "name": "gleanwork",
+  "description": "Internal tooling for managing Glean open source repositories",
+  "version": "1.0.0",
+  "author": {
+    "name": "Glean"
+  }
+}
