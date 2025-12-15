@@ -1,12 +1,12 @@
 ---
 description: Add a stability badge (experimental, prerelease, ga) to README.md
 argument-hint: <type: experimental | prerelease | ga>
-allowed-tools: Read, Edit, Glob
+allowed-tools: Read, Edit, Glob, AskUserQuestion
 ---
 
 # Add Stability Badge to README
 
-The user wants to add a **$1** stability badge to the README.md file in the current working directory.
+The user wants to add a **$ARGUMENTS** stability badge to the README.md file in the current working directory.
 
 ## Badge Definitions
 
@@ -29,14 +29,15 @@ Use EXACTLY the following badge markdown based on the requested type:
 
 ## Instructions
 
-1. **Validate the argument**: If `$1` is not one of `experimental`, `prerelease`, or `ga`, inform the user of the valid options and do not proceed.
+1. **Validate the argument**: If `$ARGUMENTS` is not one of `experimental`, `prerelease`, or `ga`, inform the user of the valid options and do not proceed.
 
-2. **Find README.md**: Look for a README.md file in the current working directory.
+2. **Find README.md**: Look for a README.md file in the current working directory. If no README.md exists, inform the user and do not proceed.
 
-3. **Insert the badge**:
-   - Read the README.md file
-   - Insert the appropriate badge markdown on a new line immediately after the first H1 heading (`# ...`)
-   - If there's no H1 heading, insert it at the very beginning of the file
+3. **Verify README structure**: Read the README.md file and check if it has an H1 heading (`# ...`). If it does not have an H1 heading, warn the user that the README lacks a title and ask if they want to proceed anyway.
+
+4. **Insert the badge**:
+   - Insert the appropriate badge markdown on a new line immediately after the first H1 heading
+   - If proceeding without an H1 heading (user confirmed), insert the badge at the very beginning of the file
    - Add a blank line after the badge for proper formatting
 
-4. **Confirm success**: Tell the user which badge was added and to which file.
+5. **Confirm success**: Tell the user which badge was added and to which file.
